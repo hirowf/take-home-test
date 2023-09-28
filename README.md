@@ -2,26 +2,44 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Node.js, versions supported: 14.20.x, 16.13.x or 18.10.x and npm installed on your local machine.
 
-## Code scaffolding
+## Clone the Repository
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run the project locally, first, you need to clone the repository to your local machine.
 
-## Build
+## Install Dependencies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Navigate to the project directory and install all the required dependencies using the command below:
 
-## Running unit tests
+```bash
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run the Application
 
-## Running end-to-end tests
+Once all dependencies are installed, you can run the application using the following command:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm run start
+```
 
-## Further help
+or
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+
+This will start the development server and open the application in your default web browser.
+
+## Running the Server
+
+To interact with the application, a server needs to be running. Open another terminal window and navigate to the project directory, then run the following command:
+
+```bash
+npx json-server --watch db.json
+```
+
+This command will start the JSON server and watch the db.json file for any changes, allowing you to interact with the application while it's running on your local machine.
