@@ -1,5 +1,5 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {
@@ -32,7 +32,7 @@ import { TodoService } from '../core/todo.service';
     MatDialogModule,
   ],
 })
-export class Todos {
+export class Todos implements OnInit {
   todos$: Observable<Todo[]> | undefined;
   reload$ = new Subject<void>();
   destroy$ = new Subject<void>();

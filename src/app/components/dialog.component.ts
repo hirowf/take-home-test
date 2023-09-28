@@ -1,7 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { Subject, takeUntil } from 'rxjs';
 import { Todo } from '../core/todo.interface';
 import { TodoService } from '../core/todo.service';
@@ -10,7 +9,7 @@ import { TodoService } from '../core/todo.service';
   selector: 'app-dialog',
   standalone: true,
   templateUrl: './dialog.component.html',
-  imports: [ReactiveFormsModule, MatSnackBarModule],
+  imports: [ReactiveFormsModule],
 })
 export class Dialog {
   todoForm!: FormGroup;
