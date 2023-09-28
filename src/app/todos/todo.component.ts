@@ -61,12 +61,19 @@ export class Todos {
     this.destroy$.complete();
   }
 
-  openDialog(): void {
+  openDialog(mode: 'create' | 'edit', todoToEdit?: Todo): void {
     const dialogRef = this.dialog.open(Dialog, {
       width: '250px',
+      data: {
+        mode: mode,
+        todo: todoToEdit ?? {},
+      },
     });
 
-    dialogRef.afterClosed().pipe(takeUntil(this.destroy$));
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => this.reload$.next());
   }
 
   updateTodo(item: Todo) {
@@ -76,7 +83,6 @@ export class Todos {
       .subscribe({
         error: () => {
           alert('Error Updating Todo');
-          item.completed = !item.completed;
         },
       });
   }
@@ -94,14 +100,10 @@ export class Todos {
   }
 
   editTodo(item: Todo) {
-    const dialogRef = this.dialog.open(Dialog, {
-      width: '250px',
-      data: { todo: item },
-    });
+    this.openDialog('edit', item);
+  }
 
-    dialogRef
-      .afterClosed()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.reload$.next());
+  createTodo() {
+    this.openDialog('create');
   }
 }

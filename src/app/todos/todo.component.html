@@ -10,7 +10,7 @@
 
   <button
     class="inline-flex items-center gap-2 rounded-full bg-[#FF4400] hover:bg-orange-500 px-8 py-3"
-    (click)="openDialog()"
+    (click)="createTodo()"
   >
     <span class="text-sm font-medium text-[#F2F2F2]"> Create </span>
     <img class="w-5 h-5" src="/assets/plus-solid.svg" alt="plus icon" />
@@ -21,7 +21,7 @@
   <app-items
     *ngIf="todos && todos.length > 0"
     [items]="todos"
-    (todoChange)="updateTodo($event)"
+    (update)="updateTodo($event)"
     (delete)="removeTodo($event)"
     (edit)="editTodo($event)"
   ></app-items>

@@ -11,13 +11,13 @@ import { CheckTodos } from './check-todos.component';
 })
 export class Items {
   @Input() items: Todo[] = [];
-  @Output() todoChange = new EventEmitter<Todo>();
+  @Output() update = new EventEmitter<Todo>();
   @Output() delete = new EventEmitter<Todo>();
   @Output() edit = new EventEmitter<Todo>();
 
   onCheckboxChange(item: Todo) {
     item.completed = !item.completed;
-    this.todoChange.emit(item);
+    this.update.emit(item);
   }
 
   onDelete = (item: Todo) => this.delete.emit(item);
