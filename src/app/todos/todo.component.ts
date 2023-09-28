@@ -47,8 +47,8 @@ export class Todos implements OnInit {
       switchMap((term: string) =>
         term
           ? this.todoService.searchByDescription(term)
-          : this.todoService.getTodos()
-      )
+          : this.todoService.getTodos(),
+      ),
     );
 
     this.reload$.pipe(takeUntil(this.destroy$)).subscribe(() => {

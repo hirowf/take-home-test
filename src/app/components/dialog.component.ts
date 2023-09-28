@@ -20,7 +20,7 @@ export class Dialog {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { todo: Todo; mode: 'create' | 'edit' },
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
     this.todoForm = this.fb.group({
       description: [data.todo.description],

@@ -9,5 +9,8 @@ import { importProvidersFrom } from '@angular/core';
  * this the config the services to be available by injection in entire application, for example HttpClient
  */
 bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient(), importProvidersFrom(BrowserAnimationsModule)],
+  providers: [
+    provideHttpClient(),
+    importProvidersFrom(BrowserAnimationsModule),
+  ],
 }).catch((err) => console.error(err));

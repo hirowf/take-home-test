@@ -16,8 +16,10 @@ export class TodoService {
       .get<Todo[]>(this.apiUrl)
       .pipe(
         map((todos) =>
-          todos.filter((todo: Todo) => todo != null).sort((a, b) => b.id - a.id)
-        )
+          todos
+            .filter((todo: Todo) => todo != null)
+            .sort((a, b) => b.id - a.id),
+        ),
       );
   }
 
