@@ -1,0 +1,30 @@
+<div class="flex flex-row gap-4 py-5">
+  <div class="w-full">
+    <input
+      type="text"
+      placeholder="Search for description or priority"
+      [formControl]="control"
+      class="block w-full rounded-md border-0 border-[#0D0D0D] bg-[#262626] px-3.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#0C58C6] sm:text-sm sm:leading-6"
+    />
+  </div>
+
+  <button
+    class="inline-flex items-center gap-2 rounded-full bg-[#FF4400] hover:bg-orange-500 px-8 py-3"
+    (click)="openDialog()"
+  >
+    <span class="text-sm font-medium text-[#F2F2F2]"> Create </span>
+    <img class="w-5 h-5" src="/assets/plus-solid.svg" alt="plus icon" />
+  </button>
+</div>
+
+<ng-container *ngIf="todos$ | async as todos">
+  <app-items
+    *ngIf="todos && todos.length > 0"
+    [items]="todos"
+    (todoChange)="updateTodo($event)"
+    (delete)="removeTodo($event)"
+    (edit)="editTodo($event)"
+  ></app-items>
+</ng-container>
+
+<check-todos *ngIf="!(todos$ | async)?.length"></check-todos>

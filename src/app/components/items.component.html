@@ -1,0 +1,40 @@
+<div class="flex flex-col gap-3">
+  <div class="flex p-4 text-white font-bold bg-[#0C58C6] rounded">
+    <span class="flex-1 ml-6">Description</span>
+    <span class="w-32 text-center">Due Date</span>
+    <span class="w-24 text-center">Priority</span>
+    <span class="w-12"></span>
+    <span class="w-12"></span>
+  </div>
+
+  <ul class="flex flex-col gap-3">
+    <li class="flex p-4 items-center rounded-lg border bg-[#262626] border-[#333] text-brand gap-3"
+      *ngFor="let item of items">
+      <div class="flex flex-1 items-center">
+        <input type="checkbox" [checked]="item.completed" (change)="onCheckboxChange(item)"
+          class="form-checkbox text-[#FF4400] rounded-full p-3" name="completed" />
+        <span class="text-[#F2F2F2] ml-4" [ngClass]="{ 'line-through': item.completed === true }">
+          {{ item.description }}
+        </span>
+      </div>
+
+      <span class="w-32 text-[#F2F2F2] text-center">
+        {{ item.dueDate | date }}
+      </span>
+      <span class="w-20 text-center text-xs font-medium capitalize rounded-xl" [ngClass]="{
+          ' bg-red-100 text-red-800': item.priority === 'high',
+          ' bg-yellow-100 text-yellow-800 ': item.priority === 'medium',
+          ' bg-green-100 text-green-800': item.priority === 'low'
+        }">
+        {{ item.priority }}
+      </span>
+
+      <span class="w-12 flex items-center justify-center cursor-pointer" (click)="onEdit(item)">
+        <img class="w-5 h-5" src="/assets/pen-to-square-solid.svg" alt="edit icon" />
+      </span>
+      <span class="w-12 flex items-center justify-center cursor-pointer" (click)="onDelete(item)">
+        <img class="w-5 h-5" src="/assets/trash-solid.svg" alt="trash icon" />
+      </span>
+    </li>
+  </ul>
+</div>

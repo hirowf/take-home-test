@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "description": "Gym at saturday",
+      "dueDate": "2023-09-30",
+      "priority": "low",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "description": "Visit Edu on Sunday",
+      "dueDate": "2023-10-01",
+      "priority": "medium",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "description": "Don't smoke anymore",
+      "dueDate": "2023-09-27",
+      "priority": "high",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "description": "Dont drink alcohol",
+      "dueDate": "2023-09-29",
+      "priority": "high",
+      "completed": false,
+      "id": 4
+    }
+  ]
+}
