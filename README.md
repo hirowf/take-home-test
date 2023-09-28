@@ -9,6 +9,11 @@ Node.js, versions supported: 14.20.x, 16.13.x or 18.10.x and npm installed on yo
 ## Clone the Repository
 
 To run the project locally, first, you need to clone the repository to your local machine.
+Use this command bellow:
+
+```bash
+git clone https://github.com/hirowf/take-home-test.git
+```
 
 ## Install Dependencies
 
